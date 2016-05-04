@@ -10,7 +10,7 @@ L'objectif est de simuler un petit carnet d'adresses en ligne sous symfony2.
 ##App
 
 
-![alt tag](https://raw.githubusercontent.com/rafa10/Carnet-address/master/homepage.png)
+![alt tag](https://github.com/rafa10/Carnet-address/blob/master/carnetAddress/homepage.png)
 
 
 A Symfony project created on May  2, 2016, 3:48 pm.
