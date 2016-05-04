@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+
+    <div class="card amber darken-2">
+        <div class="card-content white-text center-align">
+            <p class="card-title"><i class=" mdi-social-group-add"></i> {{ info|length }}</p>
+            <p>Users</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <nav>
+            <div class="nav-wrapper">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" name="query" placeholder="Recherche" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="card">
+        <ul id="profile-page-about-feed" class="collection z-depth-1">
+            {% for item in info %}
+                <li class="collection-item avatar">
+                    <i class="fa fa-user circle"></i>
+                    <span class="title upper"><b>{{ item.firstname }} {{ item.lastname }}</b></span>
+                    <p class="text-grey">
+                        <span><i class="fa fa-map-marker "></i> {{ item.address }}</span>
+                        <br> <span class="ultra-small text-grey"><i class="fa fa-mobile "></i> {{ item.phone }}</span>
+                        <br> <span class="ultra-small text-grey"><i class="fa fa-link "></i> {{ item.website }}</span>
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="fa fa-file"></i></a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

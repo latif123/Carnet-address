@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}dashboard{% endblock %}
+
+{% block content %}
+
+    <div class="row "><br><br>
+        <div class="col s12 m8 offset-m2">
+            <div class="card-panel">
+                <h5 class="header2 upper center">Edit Informations</h5>
+                {% for message in app.session.flashbag.get('edit') %}
+                    <div class="card">
+                        <p class="green white-text center">{{ message }}</p>
+                    </div>
+                {% endfor %}
+                <div class="row">
+
+                    {{ form_start(form) }}
+
+                        <div class="row"><!-- firstname -->
+                            <div class="input-field col s6">
+                                <i class="mdi-action-account-circle prefix"></i>
+                                {{ form_widget(form.firstname) }}
+                                {{ form_label(form.firstname, 'First name') }}
+                                <span class="help-block red-text">
+                                    <strong>{{ form_errors(form.firstname) }}</strong>
+                                </span>
+                            </div>
+                            <!-- lastname -->
+                            <div class="input-field col s6">
+                                <i class="mdi-action-account-circle prefix"></i>
+                                {{ form_widget(form.lastname) }}
+                                {{ form_label(form.lastname, 'Last name') }}
+                                <span class="help-block red-text">
+                                    <strong>{{ form_errors(form.lastname) }}</strong>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row"><!-- adresse-->
+                            <div class="input-field col s6">
+                                <i class="mdi-maps-place prefix"></i>
+                                {{ form_widget(form.address) }}
+                                {{ form_label(form.address, 'Address') }}
+                                <span class="help-block red-text">
+                                    <strong>{{ form_errors(form.address) }}</strong>
+                                </span>
+                            </div>
+                            <!-- phone-->
+                            <div class="input-field col s6">
+                                <i class="mdi-hardware-smartphone prefix"></i>
+                                {{ form_widget(form.phone) }}
+                                {{ form_label(form.phone, 'Phone') }}
+                                <span class="help-block red-text">
+                                    <strong>{{ form_errors(form.phone) }}</strong>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row"><!-- website-->
+                            <div class="input-field col s12">
+                                <i class="mdi-editor-insert-link prefix"></i>
+                                {{ form_widget(form.website) }}
+                                {{ form_label(form.website, 'Website') }}
+                                <span class="help-block red-text">
+                                    <strong>{{ form_errors(form.website) }}</strong>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row"><!--button-->
+                            <div class="input-field col s12">
+                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

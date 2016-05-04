@@ -1,0 +1,77 @@
+{% extends 'login.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+    <div class="row "><br><br><br><br>
+        <div class="col s12 m4 offset-m4">
+            <div class="card-panel">
+                <h5 class="header2 upper center">Register</h5>
+                <div class="row">
+
+                    {% for message in app.session.flashbag.get('testmail') %}
+                        <div id="card-alert" class="card red">
+                            <div class="card-content white-text">
+                                <p><i class="mdi-alert-error"></i> {{ message }} </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {{ form_start(form) }}
+
+                        <div class="row"><!-- name-->
+                            <div class="input-field col s12">
+                                <i class="mdi-action-account-circle prefix"></i>
+                                {{ form_widget(form.name) }}
+                                {{ form_label(form.name, 'Name') }}
+                                <span class="help-block red-text">
+                                        <strong>{{ form_errors(form.name) }}</strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row"><!--email-->
+                            <div class="input-field col s12">
+                                <i class="mdi-communication-email prefix"></i>
+                                {{ form_widget(form.email) }}
+                                {{ form_label(form.email, 'E-mail') }}
+                                <span class="help-block red-text">
+                                    <strong>{{ form_errors(form.email) }}</strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row "><!--password-->
+                            <div class="input-field col s12">
+                                <i class="mdi-action-lock-outline prefix"></i>
+                                {{ form_widget(form.password.first) }}
+                                {{ form_label(form.password, 'Password') }}
+                                <span class="help-block red-text">
+                                    <strong>{{ form_errors(form.password) }}</strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row "><!--password_confirmation-->
+                            <div class="input-field col s12">
+                                <i class="mdi-action-lock-outline prefix"></i>
+                                {{ form_widget(form.password.second) }}
+                                {{ form_label(form.password, 'Confirm Password') }}
+                                <span class="help-block red-text">
+                                    <strong></strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row"><!--button-->
+                            <div class="input-field col s12">
+                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}dashboard{% endblock %}
+
+{% block content %}
+
+    {% if info is empty %}
+        <div id="profile-page-header" class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{ asset('public/img/user-profile-bg.jpg') }}" height="300" alt="user background">
+            </div>
+            <figure class="card-profile-image">
+                <!--img src="{{ asset('public/img/avatar.png') }}" width="140" height="140" alt="profile image" class="circle z-depth-2 responsive-img activator"-->
+            </figure>
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s2 offset-s2">
+                        <h4 class="card-title grey-text upper">firstname&nbsp;lastname</h4>
+                        <p class="medium-small grey-text"><i class="mdi-action-perm-identity pink-text text-darken-2"></i> {{ app.user.username }}</p>
+                    </div>
+                    <div class="col s2 center-align">
+                        <h4 class="card-title grey-text text-darken-4">10+</h4>
+                        <p class="medium-small grey-text">Work Experience</p>
+                    </div>
+                    <div class="col s2 center-align">
+                        <h4 class="card-title grey-text text-darken-4">6</h4>
+                        <p class="medium-small grey-text">Completed Projects</p>
+                    </div>
+                    <div class="col s2 center-align">
+                        <h4 class="card-title grey-text text-darken-4">$ 1,253,000</h4>
+                        <p class="medium-small grey-text">Busness Profit</p>
+                    </div>
+                    <div class="col s2 right-align"><!-- button action -->
+                        <a href="{{ path('raf_acarnet_address_dashboard_create') }}" class="btn-floating  waves-effect green darken-2 right"><!-- edit -->
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div id="profile-page-header" class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{ asset('public/img/user-profile-bg.jpg') }}" height="300" alt="user background">
+            </div>
+            <figure class="card-profile-image">
+                <!--img src="{{ asset('public/img/avatar.png') }}" width="140" height="140" alt="profile image" class="circle z-depth-2 responsive-img activator"-->
+            </figure>
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s2 offset-s2">
+                        <h4 class="card-title grey-text text-darken-4 upper">{{ info.0.firstname }} {{ info.0.lastname }}</h4>
+                        <p class="medium-small grey-text"><i class="mdi-action-perm-identity pink-text text-darken-2"></i> {{ app.user.username }}</p>
+                    </div>
+                    <div class="col s2 center-align">
+                        <h4 class="card-title grey-text text-darken-4">10+</h4>
+                        <p class="medium-small grey-text">Work Experience</p>
+                    </div>
+                    <div class="col s2 center-align">
+                        <h4 class="card-title grey-text text-darken-4">6</h4>
+                        <p class="medium-small grey-text">Completed Projects</p>
+                    </div>
+                    <div class="col s2 center-align">
+                        <h4 class="card-title grey-text text-darken-4">$ 1,253,000</h4>
+                        <p class="medium-small grey-text">Busness Profit</p>
+                    </div>
+                    <div class="col s2 right-align"><!-- button action -->
+                        <a href="{{ path('raf_acarnet_address_dashboard_destroy', {'id':info.0.id}) }}" onclick="return confirm('Vous etez sur de supprimez tous le compte?')" class="btn-floating  waves-effect red darken-2 right"><!-- delete -->
+                            <i class="mdi-action-delete"></i>
+                        </a>
+                        <a href="{{ path('raf_acarnet_address_dashboard_edit', {'id':info.0.id}) }}" class="btn-floating  waves-effect blue darken-2 right"><!-- edit -->
+                            <i class="mdi-content-create"></i>
+                        </a>
+                        <a class="btn-floating activator waves-effect pink darken-2 right"><!-- show -->
+                            <i class="mdi-action-perm-identity"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reveal">
+                <p>
+                    <span class="card-title grey-text text-darken-4 upper">{{ info.0.firstname }} {{ info.0.lastname }} <i class="mdi-navigation-close right"></i></span>
+                    <span><i class="mdi-action-perm-identity cyan-text text-darken-2"></i> {{ app.user.username }} </span>
+                </p>
+                <p><i class="mdi-action-perm-phone-msg cyan-text text-darken-2"></i>{{ info.0.phone }}</p>
+                <p><i class="mdi-communication-email cyan-text text-darken-2"></i> {{ app.user.email }}</p>
+                <p><i class="mdi-maps-place cyan-text text-darken-2"></i> {{ info.0.address }}</p>
+            </div>
+        </div>
+    {% endif %}
+
+
+
+{% endblock %}

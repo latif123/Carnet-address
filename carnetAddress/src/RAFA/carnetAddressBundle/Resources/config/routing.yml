@@ -1,0 +1,40 @@
+raf_acarnet_address_homepage:
+    path:     /
+    defaults: { _controller: RAFAcarnetAddressBundle:Home:index }
+
+#====================== Security_routing ==========================
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+#======================= dashboard_routing ==========================
+raf_acarnet_address_dashboard:
+    path:     /dashboard
+    defaults: { _controller: RAFAcarnetAddressBundle:Dashboard:index }
+
+raf_acarnet_address_dashboard_create:
+    path:     /dashboard/create
+    defaults: { _controller: RAFAcarnetAddressBundle:Dashboard:create }
+
+raf_acarnet_address_dashboard_edit:
+    path:     /dashboard/edit/{id}
+    defaults: { _controller: RAFAcarnetAddressBundle:Dashboard:edit }
+
+raf_acarnet_address_dashboard_destroy:
+    path:     /dashboard/destroy/{id}
+    defaults: { _controller: RAFAcarnetAddressBundle:Dashboard:destroy }

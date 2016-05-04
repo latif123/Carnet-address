@@ -1,0 +1,4 @@
+services:
+#    raf_acarnet_address.example:
+#        class: RAFA\carnetAddressBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
